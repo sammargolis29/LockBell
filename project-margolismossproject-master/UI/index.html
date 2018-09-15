@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+<head>
+  <title>Doorbell App</title>
+  <!-- link style sheet -->
+  <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" type="text/css">
+  <script src="https://use.fontawesome.com/89281ccf9c.js"></script>
+  <!-- Load Material Design Light Style/Resources: https://getmdl.io/ -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+
+
+</head>
+<body>
+
+  <span id="lockbell"><span id="lock">lock</span><span id="bell">BELL</span></span>
+
+  <!-- Login Screen -->
+  <div id="login-screen" class="screen">
+    <!-- Creates center textbox  -->
+    <div class="center-text">
+      <!-- includes user icon -->
+      <i class="fa fa-user-circle fa-5x" id="user-icon" aria-hidden="true"></i><!--  from fontawesome.io -->
+      <!-- Creates textboxes for username and password -->
+      <div class="login">
+        <label class="login-label">Username:
+          <input type="text" class="login-input">
+        </label>
+      </div>
+      <div class="login">
+        <label class = "login-label" >Password:
+          <input type="password" class="login-input">
+        </label>
+      </div>
+      <!-- remember to link button to status page -->
+      <!-- login button -->
+      <!-- <button type="submit" class="button" id="button-login" onclick="load_settings();">Login</button> -->
+
+      <input type="button"  class="button" id="button-login" value= "Login" onclick="loadingPage()"/>
+      <!-- Link to Account Creation  -->
+      <!-- <a class="button" onclick="loadingPage()" id="Login">
+        Login
+      </a> -->
+
+
+      <a onclick="load_ac()" id="sign">Don't have an account? Sign up!</a>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- Account Creation Screen -->
+  <div id="account-creation" class="screen">
+    <div class="center-text">
+      <!-- include back button -->
+      <input type="button"  class="button" id="button-login" id="back-button" value= "Back" onclick="load_login()"/>
+      <!-- <a class="button" onclick="load_login()" id="back-button">
+        Back
+      </a> -->
+      <!-- includes user icon -->
+      <i class="fa fa-user-circle fa-5x" id="user-icon" aria-hidden="true"></i> <!--  from fontawesome.io -->
+      <!-- New username password and confirm password text boxs -->
+      <div class="login">
+        <label class="login-label">New Username:
+          <input type="text" class="login-input">
+        </label>
+      </div>
+      <div class="login">
+        <label class = "login-label" >New Password:
+          <input type="password" class="login-input">
+        </label>
+      </div>
+      <div class="login">
+        <label class="login-label">Confirm Password:
+          <input type="text" class="login-input">
+        </label>
+      </div>
+      <!-- remember to link button to status page -->
+      <!-- Create new account button -->
+      <!-- <button type="submit" class="button"id="button-AC">Create New Account</button>  -->
+      <a class="button" onclick="loadingPage()" id="account-button">
+        Create Account
+      </a>
+    </div>
+  </div>
+
+
+
+
+  <!-- Status Screen -->
+  <div id="status-screen" class="screen">
+    <div class="center-text">
+      <!-- Button to change door status and updates current -->
+      <div id="status-door">
+        <div id="alert" class="status-box">
+          <div id="no-activity">ALERTS: No current door activity</div>
+          <div id="activity"><p>ALERT: DOORBELL RUNG</p>
+            <input type="button" class="button"  value= "Clear" onclick="doorbell.clearAlert()"/>
+            <!-- <a class="button" onclick="doorbell.clearAlert()" id="clear-alert">
+              Clear
+            </a> -->
+           </div>
+        </div>
+        <div id="door-status" class="status-box">
+
+        </div>
+      </div>
+      <!-- close garage button -->
+      <div id="garageStatusButton">
+        <input type="button" class="button" id="toglock" value= "Toggle Lock" onclick="doorbell.toggleLock()"/>
+        <!-- <a class="button" onclick="doorbell.toggleLock()" id="toglock">
+
+        </a> -->
+      </div>
+        <input type="button" class="button" id="logout" value= "Log out" onclick="load_login()"/>
+      <!-- <a class="button" onclick="load_login()" id="logout">
+        Log out
+      </a> -->
+
+      <!-- Link to advanced settings -->
+        <input type="button" class="button" value= "Advanced Settings" onclick="load_advanced()"/>
+      <!-- <a onclick="load_advanced()"> -->
+
+        <!-- <i class="fa fa-cog fa-3x" id="setting-icon" aria-hidden="true"></i> -->
+        <!--  from fontawesome.io -->
+      <!-- </a> -->
+    </div>
+  </div>
+
+
+
+
+
+  <!-- Advanced Setting Screen -->
+
+  <div id="advanced-settings-screen" class="screen">
+    <div class="center-text">
+      <!-- added autoclose-button -->
+      <div id="autoCloseSection" class="settingsSection">
+        <div class="advanced">
+          Autolock:
+          </div>
+        <!-- Slider with Starting Value, autoclose, from Material Design Lite -->
+        <p id="slider" style="width:100%">
+          <input id="autolockSlider" class="mdl-slider mdl-js-slider" type="range"  min="5" max="60" value="25" tabindex="0">
+        </p>
+        <div class="value" id="autolockTime">25 s</div>
+      </div>
+      <input type="button" class="button"  id="changeAutoLockButton" value= "Enable" onclick="doorbell.changeAutoLock()"/>
+      <!-- <a class="button" onclick="doorbell.changeAutoLock()" id="changeAutoLockButton">
+        Enable
+      </a> -->
+
+      <!-- button for done advanced -->
+      <div>
+          <input type="button" class="button"  id="done" value= "Done" onclick="loadingPage()"/>
+        <!-- <a class="button" onclick="loadingPage()" id="done">
+          Done
+        </a> -->
+    </div>
+
+    </div>
+  </div>
+    <!-- script tag to include particle's javascript library and object -->
+    <!-- <script type="text/javascript" src="./particle.min.js"></script> -->
+    <!-- <script src="./Garage.js"></script> -->
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/particle-api-js/5/particle.min.js"></script>
+    <script src="./doorbell.js"></script>
+    <script src="./doorbellApp.js"></script>
+
+  </body>
+  </html>

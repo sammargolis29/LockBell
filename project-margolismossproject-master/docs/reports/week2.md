@@ -1,0 +1,2 @@
+For week 2 we have nearly everything complete besides just a few bugs.  We have started to set up
+a cardboard enclosure to house our project, we have the button sending correctly to the UI and the UI can control the lock and the lock is updated corrected.  We have auto lock timer nearly complete besides a small bug and enabled is working.  We have set up the IFTTT with the text and will ask Bill today why a text is not being sent.  The UI fully updates and our hardware is fully functional.  We have started the README and documentation to go along with it.
